@@ -1,0 +1,48 @@
+﻿@model List<ProjectLearn.Models.FlightRecord>
+@{
+    ViewData["Title"] = "BookTickets";
+}
+
+<h1>Booked Ticket</h1>
+
+
+@if(ViewBag.message != null)
+{
+    <div>
+        @ViewBag.Message
+    </div>
+}
+@if(Model != null && Model.Count >0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Flight Id</th>
+                <th>Flight Name</th>
+                <th>Flight status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody class="table-bordered table-secondary table-striped table-hover">
+            @foreach(var flight in Model)
+            {
+                <tr>
+                    <td>@flight.FlightId</td>
+                    <td>@flight.FlightName</td>
+                    <td>@flight.FlightSeat</td>
+                    <td>
+                        <form asp-action="CancelTicket" method="post" class="form-control-lg">
+                            <input type="hidden" name="FlightId" value="@flight.FlightId"/>
+                            <button type="submit" class=" btn btn-dark btn-outline-danger" >Cancel</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No tickets have been booked yet.</p>
+}

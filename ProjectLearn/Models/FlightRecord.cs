@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace ProjectLearn.Models;
+
+public partial class FlightRecord
+{
+    public int FlightId { get; set; }
+
+    public string? FlightName { get; set; }
+
+    public string? FlightNumber { get; set; }
+
+    public string? FromPlace { get; set; }
+
+    public string? ToPlace { get; set; }
+
+    public DateTime? DepartureTime { get; set; }
+
+    public DateTime? ArrivalTime { get; set; }
+
+    public string? FlightSeat { get; set; }
+
+    public string? FlightStatus { get; set; }
+
+    public decimal? Price { get; set; }
+
+    public string? Class { get; set; }
+
+    public string? SeatType { get; set; }
+
+    public string? FreeBaggage { get; set; }
+
+    public string? FreeMeal { get; set; }
+}

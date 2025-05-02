@@ -1,0 +1,90 @@
+﻿@model ProjectLearn.Models.FlightRecord
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>FlightRecord</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FlightName" class="control-label"></label>
+                <input asp-for="FlightName" class="form-control" />
+                <span asp-validation-for="FlightName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightNumber" class="control-label"></label>
+                <input asp-for="FlightNumber" class="form-control" />
+                <span asp-validation-for="FlightNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FromPlace" class="control-label"></label>
+                <input asp-for="FromPlace" class="form-control" />
+                <span asp-validation-for="FromPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToPlace" class="control-label"></label>
+                <input asp-for="ToPlace" class="form-control" />
+                <span asp-validation-for="ToPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartureTime" class="control-label"></label>
+                <input asp-for="DepartureTime" class="form-control" />
+                <span asp-validation-for="DepartureTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArrivalTime" class="control-label"></label>
+                <input asp-for="ArrivalTime" class="form-control" />
+                <span asp-validation-for="ArrivalTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightSeat" class="control-label"></label>
+                <input asp-for="FlightSeat" class="form-control" />
+                <span asp-validation-for="FlightSeat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightStatus" class="control-label"></label>
+                <input asp-for="FlightStatus" class="form-control" />
+                <span asp-validation-for="FlightStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class" class="control-label"></label>
+                <input asp-for="Class" class="form-control" />
+                <span asp-validation-for="Class" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeatType" class="control-label"></label>
+                <input asp-for="SeatType" class="form-control" />
+                <span asp-validation-for="SeatType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FreeBaggage" class="control-label"></label>
+                <input asp-for="FreeBaggage" class="form-control" />
+                <span asp-validation-for="FreeBaggage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FreeMeal" class="control-label"></label>
+                <input asp-for="FreeMeal" class="form-control" />
+                <span asp-validation-for="FreeMeal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

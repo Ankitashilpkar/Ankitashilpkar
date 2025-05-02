@@ -1,0 +1,209 @@
+﻿@model ProjectLearn.Models.FlightCheck
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+    <head>
+        <style>
+           body{
+               background-color:#121212;
+           }
+           h1{
+               color:#ffffff;
+           }
+            .div{
+                text-align:center;
+         
+            }
+            .lb{
+                font-size:25px;
+                color:#ffffff;
+            }
+          
+            
+            #FromPlace{
+            /*     border:2px solid red; */
+                width:220px;
+                height:40px;
+                
+            }
+            #ToPlace{
+                width:220px;
+                height:40px;
+            }
+            .btn{
+                padding:4px 80px;
+            }
+        </style>
+    </head>
+    <body>
+
+
+   
+
+    <form class="fm" method="post" action="@Url.Action("SeatCheck", "Home")">
+        <div class="div">
+            <h1>FlightCheck</h1>
+           @*  <hr class=" bs border-success" /> *@
+           <br />
+        <label class="lb" for="FromPlace">
+            From:
+        </label>
+       
+        <select id="FromPlace" name="FromPlace">
+            <option value="">
+                Select Location
+            </option>
+
+            @if (ViewBag.fromlocations != null)
+            {
+                foreach (var location in ViewBag.fromlocations)
+                {
+                    <option value="@location">
+                        @location
+                    </option>
+                }
+            }
+        </select>
+
+        <br />
+        <br />
+
+       
+        <label class="lb" for="ToPlace">
+            To:
+        </label>
+        <select id="ToPlace" name="ToPlace">
+            <option value="">
+                Select Location
+            </option>
+
+            @if (ViewBag.toLocations != null)
+            {
+                foreach (var location in ViewBag.toLocations)
+                {
+                    <option value="@location">
+                        @location
+                    </option>
+                }
+            }
+        </select>
+        <br />
+        <br />
+
+        <div class="form-group">
+            <input type="submit" value="Check" class="btn btn-primary" />
+        </div>
+        </div>
+    </form>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+@* 
+<h4>FlightCheck</h4>
+<hr />
+
+<lable for="fromDropdown">
+    From:
+</lable>
+<select id="fromDropdown">
+    <option value="">
+        Select Location
+    </option>
+
+    @if (ViewBag.FromLocations != null)
+    {
+        foreach (var location in ViewBag.FromLocations)
+        {
+            <option value="@location">
+                @location
+            </option>
+        }
+    }
+    </select>
+
+<lable for="toDropdown">
+    To:
+</lable>
+<select id="toDropdown">
+    <option value="">
+        Select Location
+    </option>
+
+    @if (ViewBag.toLocations != null)
+    {
+        foreach (var location in ViewBag.toLocations)
+        {
+            <option value="@location">
+                @location
+            </option>
+        }
+    }
+</select>
+
+<div class="form-group">
+    <input type="submit" value="Check" class="btn btn-primary" />
+</div> *@
+@* 
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="FCheck">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FromPlace" class="control-label"></label>
+                <input asp-for="FromPlace" class="form-control" />
+                <span asp-validation-for="FromPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToPlace" class="control-label"></label>
+                <input asp-for="ToPlace" class="form-control" />
+                <span asp-validation-for="ToPlace" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="FlightCheck" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div> *@
+   @*  <a asp-action="Index">Back to List</a> *@
+</div>
+@* 
+<script src="c:\users\jsr\source\repos\projectlearn\projectlearn\wwwroot\lib\jquery\dist\jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $.ajax({
+            url:'/api/flight/getFromLocations',// API ka URL type:'GET'
+       {
+           $.each(data,function(index,value)
+           {
+               ('#fromDropdown').append($('<option></option>').val(value).html(value));
+           });
+       },
+        error:function(error){
+            console.log("Error Fatching data:",error);
+        }
+        });
+    });
+    
+</script> *@

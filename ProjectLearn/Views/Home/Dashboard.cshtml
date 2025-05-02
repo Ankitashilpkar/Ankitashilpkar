@@ -1,0 +1,136 @@
+﻿@model IEnumerable<ProjectLearn.Models.FlightRecord>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+
+<html>
+    <head>
+        <style>
+            body{
+                background:#1e1e1e;
+            }
+            h1{
+                text-align:center;
+                  color:deepskyblue;
+            }
+        </style>
+    </head>
+    <body>
+
+
+
+    <h1>Flight Records</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+@* 
+    table table-dark table-bordered table-hover table-striped *@
+
+    <table class="table table-dark table-bordered table-hover table-striped">
+        <thead>
+            <tr class="table-primary">
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FromPlace)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ToPlace)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepartureTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArrivalTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightSeat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Class)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeatType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FreeBaggage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FreeMeal)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+              @*   table-warning *@
+                <tr class="">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FromPlace)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ToPlace)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightSeat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Class)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeatType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FreeBaggage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FreeMeal)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.FlightId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.FlightId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.FlightId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    </body>
+</html>
+
+

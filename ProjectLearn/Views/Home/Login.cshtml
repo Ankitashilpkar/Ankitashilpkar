@@ -1,0 +1,91 @@
+﻿@model ProjectLearn.Models.ClientTbl
+
+@{
+    ViewData["Title"] = "Login";
+   
+
+}
+
+<h1 class="h1">Customer Form</h1>
+
+<html>
+    <head>
+        <style>
+            body{
+                background:#1e1e1e;
+            }
+            .h1{
+                text-align:center;
+                color:deepskyblue;
+              /*   border:2px solid red; */
+            }
+            .hr{
+                border:4px solid black;
+                
+            }
+            .div{
+                align-items:center;
+                justify-content:center;
+             /*    border:2px solid black; */
+              
+            }
+            .tx{
+             /*    border:2px solid yellow; */
+                font-size:25px;
+                 color:#ffffff;
+            }
+        </style>
+    </head>
+    <body>
+
+
+    <hr class=" hr border-6" />
+    <div class=" div row">
+        <div class="col-md-4">
+
+            @{
+                if (ViewBag.Message != null)
+                {
+                    <h2 style="color:red;">@ViewBag.Message</h2>
+                }
+
+                if (TempData["Success"] != null)
+                {
+                    <h3 style="color:green;">@TempData["Success"]</h3>
+                }
+            }
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class=" tx control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class=" tx control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            </form>
+            <br />
+            <p>
+                <a asp-controller="Home" asp-action="Register">Not Register Yet ? Click Here To SignUp </a>
+            </p>
+        </div>
+    </div>
+
+
+
+
+    </body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
