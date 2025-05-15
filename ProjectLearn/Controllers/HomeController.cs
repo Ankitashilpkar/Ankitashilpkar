@@ -29,10 +29,100 @@ namespace ProjectLearn.Controllers
             return View(data);
         }
 
+        [HttpGet]
+        public IActionResult FlightBook(int flightId)
+        {
+            var flight = context.FlightRecords.FirstOrDefault(f => f.FlightId == flightId);
+            if(flight == null && flight.FlightSeat !="Free")
+            {
+                ViewBag.Message = "Seat is not available.";
+                return View("FlightBook", null);
+            }
+            ViewBag.FlightId = flightId;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult FlightBook(int flightId , string name,string aadhaar)
+        {
+            var flight = context.FlightRecords.FirstOrDefault(f => f.FlightId == flightId);
+
+            if(flight !=null && flight.FlightSeat == "Free")
+            {
+                var flightbook = new FlightBook
+                {
+                    PassengerName = name,
+                    PassengerAadhaar = aadhaar
+                };
+                context.FlightBooks.Add(flightbook);
+
+                flight.FlightSeat = "booked";
+                context.SaveChanges();
+
+                ViewBag.Message = "Ticket booked successfully";
+                return View("flightbook",flight);
+            }
+            ViewBag.Message = "Seat is not available";
+            return View("flightbook", null);
+        }
 
 
 
-     
+
+
+
+
+        //[HttpGet]
+        //public IActionResult FlightBook(int flightId)
+        //{
+        //    var flight = context.FlightRecords.FirstOrDefault(f => f.FlightId == flightId);
+        //    if (flight == null)
+        //    {
+        //        return View(flight);
+        //    }
+        //    return NotFound();
+        //}
+
+        //[HttpPost]
+        //public IActionResult ConfirmBooking(int flightId)
+        //{
+        //    var flight = context.FlightRecords.FirstOrDefault(f => f.FlightId == flightId);
+        //    if(flight != null && flight.FlightSeat == "Free")
+        //    {
+        //        flight.FlightSeat = "booked";
+        //        context.SaveChanges();
+        //        ViewBag.Message = "Ticket book successfully";
+        //        return View("FlightBook",flight);
+        //    }
+        //    ViewBag.Message = "Seat is not available";
+        //    return View("FlightBook", null);
+
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> Booking(FlightBook book)
+        //{
+        //    if(ModelState.IsValid)
+        //    {
+        //        await context.FlightBooks.AddAsync(book);
+        //        await context.SaveChangesAsync();
+
+        //        TempData["Message"] = "Insert SuccessFull..";
+        //        return RedirectToAction("ConfirmBooking");
+
+        //        //var data = await context.FlightRecords.FindAsync(book.FlightId);
+        //        //if(data != null && data.FlightSeat == "Free")
+        //        //{
+        //        //    data.FlightSeat = "booked";
+        //        //    await context.SaveChangesAsync();
+        //        //    return RedirectToAction("ConfirmBooking");
+        //        ///}
+        //        //return NotFound("Flight not found");
+        //    }
+        //    return View(book);
+        //}
+
+
 
         //[ValidateAntiForgeryToken]
         //[HttpPost]

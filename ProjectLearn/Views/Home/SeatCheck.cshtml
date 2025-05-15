@@ -10,23 +10,31 @@
     <head>
         <style>
             body{
-                background:#1e1e1e;
+               
+               background-size: cover;
+               background-image: url('../image/seat4.jpg');
+               background-repeat: no-repeat;
+               background-position: center;
+               height:100vh;
             }
-            h1{
-                text-align:center;
-                color:#ffffff;
+          
+            .custom-font{
+            font-family: 'Crimson',serif;
             }
         </style>
     </head>
     <body>
-    <h1>Seat Check</h1>
+    <h1 class="text-center text-primary">Seat Check</h1>
     <br />
     @* <p>
         <a asp-action="Create">Create New</a>
-    </p> *@
-    <table class="table table-dark table-bordered table-hover table-striped">
+
+    </p> 
+    table-dark table-bordered table-hover table-striped
+    *@
+    <table class=" custom-font table rounded shadow table-responsive  p-4 ">
         <thead>
-            <tr class="table-primary">
+            <tr class="table-primary text-primary">
                 <th>
 
                 </th>
@@ -72,14 +80,14 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="fs-5 text-dark  fw-bold justify-content-center">
             @foreach (var item in Model)
             {
                 <tr>
                     <td>
                         <form asp-controller="Home" asp-action="FlightBook" method="post">
-                            <input type="hidden" name="Id" value="@item.FlightId" />
-                            <button type="submit">Select</button>
+                            <input type="hidden"  value="@item.FlightId" />
+                            <button type="submit" class="btn btn-primary">Select</button>
                         </form>
                     </td>
                     <td>

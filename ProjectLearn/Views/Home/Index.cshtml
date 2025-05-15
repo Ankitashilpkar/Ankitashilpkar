@@ -7,52 +7,34 @@
 <html>
     <head>
         <style>
-           body{
-               background-color:#121212;
-           }
-           h1{
-               color:#ffffff;
-           }
-            .div{
-                text-align:center;
-         
+            .bg-image{
+             
+            background-size: cover;
+            background-image: url('../image/flight4.jpg');
+            background-repeat: no-repeat;
+            background-position:center;
+            height:100vh;
             }
-            .lb{
-                font-size:25px;
-                color:#ffffff;
-            }
-          
-            
-            #FromPlace{
-            /*     border:2px solid red; */
-                width:220px;
-                height:40px;
-                
-            }
-            #ToPlace{
-                width:220px;
-                height:40px;
-            }
-            .btn{
-                padding:4px 80px;
+            .custom-font{
+            font-family: 'Crimson',serif;
             }
         </style>
+     
     </head>
-    <body>
+    <body class="bg-image">
 
+ @*    fixed-top bg-transparent" *@
 
-   
-
-    <form class="fm" method="post" action="@Url.Action("SeatCheck", "Home")">
+    <form class="custom-font p-4  rounded shadow m-4"   method="post" action="@Url.Action("SeatCheck", "Home")">
         <div class="div">
-            <h1>FlightCheck</h1>
+            <h1 class="mb-3 text-center">FlightCheck</h1>
            @*  <hr class=" bs border-success" /> *@
            <br />
-        <label class="lb" for="FromPlace">
+        <label class="form-label fs-3" for="FromPlace">
             From:
         </label>
        
-        <select id="FromPlace" name="FromPlace">
+        <select id="FromPlace" class="form-control fs-4" name="FromPlace">
             <option value="">
                 Select Location
             </option>
@@ -72,10 +54,10 @@
         <br />
 
        
-        <label class="lb" for="ToPlace">
+        <label class="form-label fs-3" for="ToPlace">
             To:
         </label>
-        <select id="ToPlace" name="ToPlace">
+        <select id="ToPlace" class="form-control fs-4" name="ToPlace">
             <option value="">
                 Select Location
             </option>
@@ -94,7 +76,7 @@
         <br />
 
         <div class="form-group">
-            <input type="submit" value="Check" class="btn btn-primary" />
+            <input type="submit" value="Check" class="btn btn-primary w-100 fs-4" />
         </div>
         </div>
     </form>

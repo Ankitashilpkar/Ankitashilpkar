@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "FlightBook";
+}
+
+<h1>Flight Book</h1>
+
+@if(ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+@if(ViewBag.FlightId != null)
+{
+    <form asp-action="FlightBook" method="post">
+        <input type="hidden" name="FlightId" value="@ViewBag.FlightId"/>
+        <label>Name:</label>
+        <input type="text" name="name" required/>
+
+        <label>Aadhaar:</label>
+        <input type="text" name="aadhaar" required/>
+
+        <button type="submit">Book</button>
+    </form>
+}
+
+
+
+@* 
+@if(Model != null)
+{
+    <p>Flight Records: @Model.FlightNumber</p>
+    <p>Flight Seat: @Model.FlightSeat</p>
+
+    <form asp-action="ConfirmBooking" method="post">
+        <input type="hidden" name="FlightId" />
+
+        <button type="submit">Booking</button>
+    </form>
+
+}
+else
+{
+    <p>Flight Not Found.</p>
+}
+@if(ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+} *@

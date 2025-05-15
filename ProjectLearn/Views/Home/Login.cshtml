@@ -6,41 +6,28 @@
 
 }
 
-<h1 class="h1">Customer Form</h1>
 
 <html>
     <head>
         <style>
-            body{
-                background:#1e1e1e;
+          .bg-image {
+            background-image: url('../image/flight5.jpg');
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+            height:100vh;
+            backdrop-filter:blur(0.98px);
             }
-            .h1{
-                text-align:center;
-                color:deepskyblue;
-              /*   border:2px solid red; */
-            }
-            .hr{
-                border:4px solid black;
-                
-            }
-            .div{
-                align-items:center;
-                justify-content:center;
-             /*    border:2px solid black; */
-              
-            }
-            .tx{
-             /*    border:2px solid yellow; */
-                font-size:25px;
-                 color:#ffffff;
-            }
+         .custom-font{
+            font-family: 'Crimson',serif;
+         }
         </style>
     </head>
-    <body>
+    <body class="bg-image ">
 
 
-    <hr class=" hr border-6" />
-    <div class=" div row">
+   
+    <div class="mt-5 row ">
         <div class="col-md-4">
 
             @{
@@ -54,28 +41,30 @@
                     <h3 style="color:green;">@TempData["Success"]</h3>
                 }
             }
-            <form asp-action="Login">
+            <form class="custom-font p-4  rounded shadow "  asp-action="Login">
+
+                <h1 class="custom-font mb-3 text-center">Customer Form</h1>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="form-group">
-                    <label asp-for="Email" class=" tx control-label"></label>
-                    <input asp-for="Email" class="form-control" />
+                <div class=" mb-3 ">
+                    <label asp-for="Email" class=" form-label fs-4"></label>
+                    <input asp-for="Email" class="form-control fs-5" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Password" class=" tx control-label"></label>
-                    <input asp-for="Password" class="form-control" />
+                <div class=" mb-3">
+                    <label asp-for="Password" class=" form-label fs-4"></label>
+                    <input asp-for="Password" class="form-control fs-5" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
                 <br />
                 <div class="form-group">
-                    <input type="submit" value="Login" class="btn btn-primary" />
+                    <input type="submit" value="Login" class="btn fs-4 btn-primary w-100" />
                 </div>
             </form>
             <br />
             <p>
-                <a asp-controller="Home" asp-action="Register">Not Register Yet ? Click Here To SignUp </a>
+                <a class="align-items-center fs-5" asp-controller="Home" asp-action="Register">Not Register Yet ? Click Here To SignUp </a>
             </p>
         </div>
     </div>
